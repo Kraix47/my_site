@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <title>Анімована кнопка та меню з фоновим зображенням</title>
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+        /* Стиль для кнопки */
+        .my-button {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.5s ease; /* Додати анімаційний ефект */
+        }
+
+        /* Стиль для тексту після кнопки */
+        .my-text {
+            display: none; /* Спочатку прихований */
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Стиль для контейнера */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            {% load static %}
+            background-image: url({% static 'images/mountains.jpg' %});
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        /* Стиль для анімованого меню */
+        .my-menu {
+            display: none; /* Спочатку прихований */
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.7;
+            {%load static %}
+            background-image: url({% static 'images/gradient.jpg' %});
+            width: 200px;
+            background-size: cover;
+            height: 100%;
+            padding: 20px;
+            box-shadow: 3px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+}
+    a {
+        text-align: center;
+        background-color: aliceblue ;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="my-button" onclick="toggleMenu()">Натисни мене</button>
+        <h1 class="my-text">Я хочу бути вирівнний</h1>
+        <div class="my-menu">
+            <!-- Додайте пункти меню тут -->
+            <a href="{% url 'for_programming' %}">арар</a>
+            <a href="{% url 'for_programming' %}">арар</a>
+            <a href="{% url 'for_programming' %}">арар</a>
+            <a href="{% url 'for_programming' %}">арар</a>
+            <a href="{% url 'for_programming' %}">арар</a>
+            <a href="{% url 'for_programming' %}">арар</a>
+            <a href="{% url 'for_programming' %}">арар</a>
+            <a href="{% url 'for_programming' %}">арар</a>
+            <a href="{% url 'for_programming' %}">арар</a>
+
+
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const button = document.querySelector('.my-button');
+            const text = document.querySelector('.my-text');
+            const menu = document.querySelector('.my-menu');
+
+            // Приховати кнопку
+            button.style.opacity = 0;
+
+            // Показати текст
+            text.style.display = 'block';
+
+            // Показати анімоване меню
+            menu.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
